@@ -143,13 +143,11 @@ class HybridFileImage extends StatefulWidget {
 }
 
 class _HybridFileImageState extends State<HybridFileImage> {
-  late File file;
   late String fileExtension;
 
   @override
   void initState() {
-    file = widget.file;
-    fileExtension = extension(basename(file.path));
+    fileExtension = extension(basename(widget.file.path));
     super.initState();
   }
 
