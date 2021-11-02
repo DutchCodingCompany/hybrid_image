@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/parser.dart';
 import 'package:path/path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+/// Widget that wraps [SvgPicture.network()] and [Image.network()] which picks
+/// the right widget based on the file extension. The [imageUrl] parameter should not be empty
 class HybridNetworkImage extends StatefulWidget {
   final String imageUrl;
   final double? width;
@@ -69,6 +69,8 @@ class _HybridNetworkImageState extends State<HybridNetworkImage> {
   }
 }
 
+/// Widget that wraps [SvgPicture.asset()] and [Image.asset()] which picks
+/// the right widget based on the file extension. The [assetPath] parameter should not be empty
 class HybridAssetImage extends StatefulWidget {
   final String assetPath;
   final double? width;
@@ -121,6 +123,8 @@ class _HybridAssetImageState extends State<HybridAssetImage> {
   }
 }
 
+/// Widget that wraps [SvgPicture.file()] and [Image.file()] which picks
+/// the right widget based on the file extension. The [file] parameter should not be empty
 class HybridFileImage extends StatefulWidget {
   final File file;
   final double? width;
