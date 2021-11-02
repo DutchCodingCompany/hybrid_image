@@ -110,7 +110,7 @@ class _HybridAssetImageState extends State<HybridAssetImage> {
       );
     }
 
-    return Image.network(
+    return Image.asset(
       widget.assetPath,
       width: widget.width,
       height: widget.height,
