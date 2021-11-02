@@ -11,29 +11,38 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Hybrid Image
+
+Wraps [flutter_svg](https://pub.dev/packages/flutter_svg) and the Flutter SDK image providers and picks the right widget based on the file extension
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+As of right now it's possible to use three widgets:
+- HybridAssetImage
+- HybridNetworkImage
+- HybridFileImage
+
+Memory image isn't supported as of right now, because it's not possible to distinct between svg images and regular images
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Since it's a wrapper for flutter_svg and the normal image constructors, there's not special usage to be mentioned. Pick the right widget for your use case whether it's network, asset or file.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+```dart
+final file = File('your/path.png');
+HybridFileImage(file, width: 50, height: 50),
+```
 
 ```dart
-const like = 'sample';
+HybridAssetImage('assets/my_image.svg', width: 50, height: 50),
+```
+
+```dart
+HybridNetworkImage('https://my.website.com/this_image.jpg', width: 50, height: 50),
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+This package has been made for convenience, if you have any good additions feel free to open a pull request on Github :)
