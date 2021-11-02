@@ -8,3 +8,7 @@
 ## 0.0.3
 
 * Updated repository link
+
+## 0.0.4
+
+* Updated description field
