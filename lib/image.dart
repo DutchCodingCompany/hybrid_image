@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/parser.dart';
 import 'package:path/path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -112,6 +114,58 @@ class _HybridAssetImageState extends State<HybridAssetImage> {
 
     return Image.asset(
       widget.assetPath,
+      width: widget.width,
+      height: widget.height,
+      fit: widget.fit,
+    );
+  }
+}
+
+class HybridFileImage extends StatefulWidget {
+  final File file;
+  final double? width;
+  final double? height;
+  final BoxFit fit;
+  final AlignmentGeometry alignment;
+
+  HybridFileImage(
+    this.file, {
+    Key? key,
+    this.width,
+    this.height,
+    this.alignment = Alignment.center,
+    this.fit = BoxFit.contain,
+  })  : assert(file.existsSync()),
+        super(key: key);
+
+  @override
+  _HybridFileImageState createState() => _HybridFileImageState();
+}
+
+class _HybridFileImageState extends State<HybridFileImage> {
+  late File file;
+  late String fileExtension;
+
+  @override
+  void initState() {
+    file = widget.file;
+    fileExtension = extension(basename(file.path));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (fileExtension == '.svg') {
+      return SvgPicture.file(
+        widget.file,
+        width: widget.width,
+        height: widget.height,
+        fit: widget.fit,
+      );
+    }
+
+    return Image.file(
+      widget.file,
       width: widget.width,
       height: widget.height,
       fit: widget.fit,
