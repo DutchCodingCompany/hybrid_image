@@ -11,7 +11,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,30 +38,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Column(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.file_copy),
-              onPressed: () async {
-                FilePickerResult? result = await FilePicker.platform.pickFiles(
-                  type: FileType.custom,
-                  allowedExtensions: ['svg', 'png', 'jpg', 'PNG', 'jpeg'],
-                );
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Column(
+        children: [
+          IconButton(
+            icon: const Icon(Icons.file_copy),
+            onPressed: () async {
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['svg', 'png', 'jpg', 'PNG', 'jpeg'],
+              );
 
-                setState(() {
-                  if (result != null) {
-                    file = File(result.files.single.path!);
-                  }
-                });
-              },
+              setState(() {
+                if (result != null) {
+                  file = File(result.files.single.path!);
+                }
+              });
+            },
+          ),
+          if (file != null) ...{
+            Expanded(
+              child: HybridFileImage(file!, key: UniqueKey()),
             ),
-            if (file != null) ...{
-              HybridFileImage(file!, key: UniqueKey()),
-            }
-          ],
-        ));
+          },
+          Expanded(
+            child: HybridNetworkImage('https://svgur.com/i/bhK.svg'),
+          )
+        ],
+      ),
+    );
   }
 }

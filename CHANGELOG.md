@@ -12,3 +12,7 @@
 ## 0.0.4
 
 * Updated description field
+
+## 0.0.5
+
+* Replaced manually splitting Uri path with Uri.pathSegments

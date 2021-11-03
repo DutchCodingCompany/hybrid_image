@@ -22,7 +22,7 @@ class HybridNetworkImage extends StatefulWidget {
     this.headers,
     this.alignment = Alignment.center,
     this.fit = BoxFit.contain,
-  })  : assert(imageUrl.isNotEmpty),
+  })  : assert(imageUrl.isNotEmpty && Uri.parse(imageUrl).isAbsolute),
         super(key: key);
 
   @override
@@ -36,12 +36,7 @@ class _HybridNetworkImageState extends State<HybridNetworkImage> {
   @override
   void initState() {
     uri = Uri.parse(widget.imageUrl);
-    fileExtension = extension(
-      uri.path.substring(
-        uri.path.lastIndexOf('/') + 1,
-        uri.path.length,
-      ),
-    );
+    fileExtension = extension(uri.pathSegments.last);
     super.initState();
   }
 
