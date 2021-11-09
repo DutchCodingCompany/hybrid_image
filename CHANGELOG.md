@@ -16,3 +16,7 @@
 ## 0.0.5
 
 * Replaced manually splitting Uri path with Uri.pathSegments
+
+## 0.0.6
+
+* Refactored the constructors of HybridImage. Constructors are now `HybridImage.network()`, `HybridImage.asset()` and `HybridImage.file()`.

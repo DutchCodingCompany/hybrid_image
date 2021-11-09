@@ -60,12 +60,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           if (file != null) ...{
             Expanded(
-              child: HybridFileImage(file!, key: UniqueKey()),
+              child: HybridImage.file(
+                file: file!,
+                key: UniqueKey(),
+              ),
             ),
           },
           Expanded(
-            child: HybridNetworkImage('https://svgur.com/i/bhK.svg'),
-          )
+            child: HybridImage.network(imageUrl: 'https://svgur.com/i/bhK.svg'),
+          ),
         ],
       ),
     );

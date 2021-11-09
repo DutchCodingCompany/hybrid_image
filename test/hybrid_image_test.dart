@@ -8,16 +8,16 @@ void main() {
   });
 
   test('HybridNetworkImage does not accept empty url', () {
-    expect(() => HybridNetworkImage(''), throwsAssertionError);
+    expect(() => HybridImage.network(imageUrl: ''), throwsAssertionError);
   });
 
   test('HybridNetworkImage does not accept invalid url', () {
-    expect(() => HybridNetworkImage('test'), throwsAssertionError);
+    expect(() => HybridImage.network(imageUrl: 'test'), throwsAssertionError);
   });
 
   test('HybridNetworkImage does not throw exception on valid url', () {
     expect(
-      () => HybridNetworkImage('https://test.com/image.jpg'),
+      () => HybridImage.network(imageUrl: 'https://test.com/image.jpg'),
       returnsNormally,
     );
   });

@@ -1,6 +1,6 @@
 name: hybrid_image
 description: This package wraps the flutter_svg package and the Flutter SDK image constructors. The package picks the right Image constructor based on extension
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/DutchCodingCompany/hybrid_image
 
 environment:
