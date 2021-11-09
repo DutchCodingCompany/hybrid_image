@@ -20,3 +20,7 @@
 ## 0.0.6
 
 * Refactored the constructors of HybridImage. Constructors are now `HybridImage.network()`, `HybridImage.asset()` and `HybridImage.file()`.
+
+## 0.0.7
+
+* Updated README.md

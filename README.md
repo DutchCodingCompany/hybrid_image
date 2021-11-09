@@ -32,24 +32,24 @@ Since it's a wrapper for flutter_svg and the normal image constructors, there's 
 
 ```dart
 final file = File('your/path.png');
-HybridFileImage(
-    file, 
+HybridImage.file(
+    file: file, 
     width: 50, 
     height: 50,
 ),
 ```
 
 ```dart
-HybridAssetImage(
-    'assets/my_image.svg', 
+HybridImage.asset(
+    assetPath: 'assets/my_image.svg', 
     width: 50, 
     height: 50,
 ),
 ```
 
 ```dart
-HybridNetworkImage(
-    'https://my.website.com/this_image.jpg', 
+HybridImage.network(
+    imageUrl: 'https://my.website.com/this_image.jpg', 
     width: 50, 
     height: 50,
 ),
