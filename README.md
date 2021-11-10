@@ -18,9 +18,9 @@ Wraps [flutter_svg](https://pub.dev/packages/flutter_svg) and the Flutter SDK im
 ## Features
 
 As of right now it's possible to use three widgets:
-- `HybridAssetImage`
-- `HybridNetworkImage`
-- `HybridFileImage`
+- `HybridImage.asset()`
+- `HybridImage.network()`
+- `HybridImage.file()`
 
 Memory image isn't supported as of right now, because it's not possible to distinct between svg images and regular images
 
@@ -33,7 +33,7 @@ Since it's a wrapper for flutter_svg and the normal image constructors, there's 
 ```dart
 final file = File('your/path.png');
 HybridImage.file(
-    file: file, 
+    file, 
     width: 50, 
     height: 50,
 ),
@@ -41,7 +41,7 @@ HybridImage.file(
 
 ```dart
 HybridImage.asset(
-    assetPath: 'assets/my_image.svg', 
+    'assets/my_image.svg', 
     width: 50, 
     height: 50,
 ),
@@ -49,7 +49,7 @@ HybridImage.asset(
 
 ```dart
 HybridImage.network(
-    imageUrl: 'https://my.website.com/this_image.jpg', 
+    'https://my.website.com/this_image.jpg', 
     width: 50, 
     height: 50,
 ),

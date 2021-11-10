@@ -26,8 +26,8 @@ class HybridImage extends StatefulWidget {
 
   /// Factory for [HybridImage] that returns a widget with a network image for both svg and other image types.
   /// [imageUrl] is the url of the image and is required.
-  factory HybridImage.network({
-    required String imageUrl,
+  factory HybridImage.network(
+    String imageUrl, {
     Key? key,
     Map<String, String>? headers,
     double? width,
@@ -48,9 +48,9 @@ class HybridImage extends StatefulWidget {
 
   /// Factory for [HybridImage] that returns a widget with an asset image for both svg and other image types.
   /// [assetPath] is the local path of the image and is required.
-  factory HybridImage.asset({
+  factory HybridImage.asset(
+    String assetPath, {
     Key? key,
-    required String assetPath,
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,
@@ -68,9 +68,9 @@ class HybridImage extends StatefulWidget {
 
   /// Factory for [HybridImage] that returns a widget with a file image for both svg and other image types.
   /// [file] is required.
-  factory HybridImage.file({
+  factory HybridImage.file(
+    File file, {
     Key? key,
-    required File file,
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,

@@ -24,3 +24,8 @@
 ## 0.0.7
 
 * Updated README.md
+
+## 0.0.8
+
+* Updated README.md
+* Changed first url, path and file parameter to non-named parameters
